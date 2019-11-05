@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#define who and what here
+
+PYRUN=`basename "$PWD"`
+
+USER=ewanp82
+
+#BSUB -o %J.o
+
+#BSUB -e %J.e
+
+#BSUB -q par-multi
+
+#BSUB -J Py_job
+
+#BSUB -n 50
+
+#BSUB -W 10:00
+
+#BSUB -M 40000
+
+#Define which Python command to use
+
+module load jaspy
+#python run_experiment.py 0 run_xa plot
+python run_experiment.py 0 find_likely >> out.log
+
+#Make some helpful output to screen and put the messages into filesq

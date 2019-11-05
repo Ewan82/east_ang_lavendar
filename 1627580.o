@@ -1,0 +1,74 @@
+Sender: LSF System <lsfadmin@host223.jc.rl.ac.uk>
+Subject: Job 1627580: <Py_job> in cluster <lotus> Done
+
+Job <Py_job> was submitted from host <jasmin-sci2-panfs.ceda.ac.uk> by user <ewanp82> in cluster <lotus>.
+Job was executed on host(s) <8*host223.jc.rl.ac.uk>, in queue <par-multi>, as user <ewanp82> in cluster <lotus>.
+                            <3*host140.jc.rl.ac.uk>
+                            <3*host197.jc.rl.ac.uk>
+                            <3*host216.jc.rl.ac.uk>
+                            <7*host092.jc.rl.ac.uk>
+                            <6*host252.jc.rl.ac.uk>
+                            <4*host247.jc.rl.ac.uk>
+                            <7*host130.jc.rl.ac.uk>
+                            <7*host061.jc.rl.ac.uk>
+                            <2*host169.jc.rl.ac.uk>
+</home/users/ewanp82> was used as the home directory.
+</home/users/ewanp82/projects/east_ang_lavendar> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#define who and what here
+
+PYRUN=`basename "$PWD"`
+
+USER=ewanp82
+
+#BSUB -o %J.o
+
+#BSUB -e %J.e
+
+#BSUB -q par-multi
+
+#BSUB -J Py_job
+
+#BSUB -n 50
+
+#BSUB -W 10:00
+
+#Define which Python command to use
+
+module load jaspy
+#python run_experiment.py 0 run_xa plot
+python run_experiment.py 0 find_likely >> out.log
+
+#Make some helpful output to screen and put the messages into filesq
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   89389.31 sec.
+    Max Memory :                                 11280 MB
+    Average Memory :                             10559.22 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   1602102 MB
+    Max Processes :                              55
+    Max Threads :                                794
+    Run time :                                   6079 sec.
+    Turnaround time :                            6075 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <1627580.e> for stderr output of this job.
+

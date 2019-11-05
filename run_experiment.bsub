@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#define who and what here
+
+PYRUN=`basename "$PWD"`
+
+USER=ewanp82
+
+#BSUB -o /work/scratch/${USER}/${PYRUN}/%J.o
+
+#BSUB -e /work/scratch/${USER}/${PYRUN}/%J.e
+
+#BSUB -q par-multi
+
+#BSUB -J Py_job
+
+#BSUB -n 50
+
+#BSUB -W 1:00
+
+# Get the original working directory
+
+pwd1=${PWD}
+
+# Get temp wd
+
+pwd2=/work/scratch/${USER}/${PYRUN}
+
+mkdir -p $pwd2
+
+cp -dr * ${pwd2}/
+
+cd $pwd2
+
+#Define which Python command to use
+
+#python run_experiment.py 0 run_xa plot
+python run_experiment.py 0 ancils 2>> err.log >> out.log
+
+#Make some helpful output to screen and put the messages into filesq
+
+
